@@ -1,0 +1,11 @@
+todo.md
+BUILDING.md
+
+drafts/
+tools/
+subscribe/
+assets/
+
+.DS_Store
+__pycache__/
+.env*

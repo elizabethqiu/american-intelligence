@@ -1,0 +1,118 @@
+<!doctype html>
+<!-- Template for new parts. Don't edit copies by hand to start one: run  python3 tools/part.py new N "Title"  -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>__TITLE__ | American Intelligence</title>
+  <meta name="description" content="__DEK__">
+  <meta name="theme-color" content="#0a0c0f">
+  <link rel="canonical" href="https://american-intelligence.ai/__SLUG__">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="__TITLE__ | American Intelligence">
+  <meta property="og:description" content="__DEK__">
+  <meta property="og:url" content="https://american-intelligence.ai/__SLUG__">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="wordmark" href="/">American Intelligence</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="site-nav__secondary" href="/#contents">Contents</a>
+        <a class="btn btn--ghost btn--small" href="#subscribe">Subscribe</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <header class="essay-header">
+        <p class="eyebrow">Part __ROMAN__</p>
+        <h1 class="essay-header__title">__TITLE__</h1>
+        <!-- EDIT: dek / subtitle -->
+        <p class="essay-header__dek">__DEK__</p>
+      </header>
+
+      <!-- EDIT: paste the essay below. Supported: <p>, <h2>, <h3>, <blockquote>,
+           <blockquote class="pull">, <ul>/<ol>, <hr> (renders as ★ ★ ★), footnotes. -->
+      <div class="prose">
+        <p>Opening paragraph. Replace this placeholder text with your essay; the column width, line height, and type size are set for long-form reading.</p>
+
+        <p>Second paragraph. Footnotes work like this.<sup><a href="#fn1" id="ref1">1</a></sup> Links look <a href="#">like this</a>.</p>
+
+        <blockquote class="pull">A pull quote, for the one sentence you want readers to remember.</blockquote>
+
+        <h2>A section heading</h2>
+
+        <p>Body text continues under section headings. Use <code>&lt;h2&gt;</code> for major sections and <code>&lt;h3&gt;</code> for small labeled subsections.</p>
+
+        <ul>
+          <li>Lists are supported</li>
+          <li>With muted markers</li>
+        </ul>
+
+        <hr>
+
+        <p>Closing paragraph.</p>
+      </div>
+
+      <section class="footnotes" aria-label="Footnotes">
+        <ol>
+          <li id="fn1">Footnote text. <a href="#ref1" aria-label="Back to text">&#8617;</a></li>
+        </ol>
+      </section>
+    </article>
+
+    <nav class="essay-nav" aria-label="Previous and next parts">
+      <a class="essay-nav__item" href="__PREV_HREF__">
+        <span class="eyebrow">&larr; Previous &middot; __PREV_LABEL__</span>
+        <span class="essay-nav__title">__PREV_TITLE__</span>
+      </a>
+__NEXT_NAV__
+    </nav>
+
+    <section class="subscribe" id="subscribe" aria-labelledby="subscribe-title">
+      <div class="subscribe__card">
+        <div>
+          <h2 class="subscribe__title" id="subscribe-title">Part __NEXT_ROMAN__ is coming.</h2>
+          <p class="subscribe__copy">Leave your email to get each new part as it's released. No spam; unsubscribe anytime.</p>
+        </div>
+        <form class="subscribe-form" data-source="__SLUG__" novalidate>
+          <label class="sr-only" for="email-__SLUG__">Email address</label>
+          <div class="subscribe-form__row">
+            <input id="email-__SLUG__" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+            <button class="btn btn--primary" type="submit">Subscribe</button>
+          </div>
+          <input class="subscribe-form__hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <p class="subscribe-form__status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+      <div class="contact-line">
+        <p>Building, researching, or governing at the frontier? Get in touch for early access.</p>
+        <a class="btn btn--ghost btn--small" href="mailto:e@american-intelligence.ai">Get in touch &rarr;</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <span>American Intelligence</span>
+      <span><a href="/american-intelligence.pdf">Download PDF</a> &middot; <a href="/">Home</a></span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/posthog-js@1.435.8/dist/array.full.no-external.js" defer></script>
+  <script src="/assets/site.js" defer></script>
+</body>
+</html>
