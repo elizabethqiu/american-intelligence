@@ -19,6 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css">
+  <script>try { if (localStorage.getItem("theme") === "light") document.documentElement.dataset.theme = "light"; } catch (e) {}</script>
 </head>
 <body>
 
@@ -30,6 +31,10 @@
       <nav class="site-nav" aria-label="Primary">
         <a class="site-nav__secondary" href="/#contents">Contents</a>
         <a class="btn btn--ghost btn--small" href="#subscribe">Subscribe</a>
+        <button class="theme-toggle" type="button" aria-label="Switch to light mode">
+          <svg class="theme-toggle__moon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M13.5 9.5A5.5 5.5 0 016.5 2.5a5.5 5.5 0 107 7z"/></svg>
+          <svg class="theme-toggle__sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M3.05 12.95l1.06-1.06M11.89 4.11l1.06-1.06"/></svg>
+        </button>
       </nav>
     </div>
   </header>

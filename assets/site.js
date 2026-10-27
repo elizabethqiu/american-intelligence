@@ -106,6 +106,27 @@ document.querySelectorAll(".toc__item--locked .toc__link, .essay-nav__item--lock
   });
 });
 
+// Light/dark toggle. Dark is the default; a reader's choice is remembered in
+// localStorage and applied early by an inline script in each page's <head>.
+const themeToggle = document.querySelector(".theme-toggle");
+const themeColor = document.querySelector('meta[name="theme-color"]');
+
+const applyTheme = (theme) => {
+  const light = theme === "light";
+  if (light) document.documentElement.dataset.theme = "light";
+  else delete document.documentElement.dataset.theme;
+  themeColor?.setAttribute("content", light ? "#f7f5f0" : "#0a0c0f");
+  themeToggle?.setAttribute("aria-label", light ? "Switch to dark mode" : "Switch to light mode");
+};
+
+applyTheme(document.documentElement.dataset.theme);
+
+themeToggle?.addEventListener("click", () => {
+  const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+  applyTheme(next);
+  try { localStorage.setItem("theme", next); } catch (e) {}
+});
+
 const progress = document.querySelector(".progress");
 if (progress) {
   const update = () => {

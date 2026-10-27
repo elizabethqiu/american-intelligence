@@ -14,6 +14,12 @@
   --accent: #b5463c;          /* muted flag red, used sparingly */
   --accent-blue: #5a78b0;     /* muted flag blue, for the three stars */
   --focus: #8fa8d6;
+  --header-bg: rgba(10, 12, 15, 0.78);
+  --card-bg: rgba(17, 20, 25, 0.72);
+  --tint: rgba(231, 228, 221, 0.07);   /* inline code, redacted bars */
+  --btn-hover: #fff;
+  --error: #d98a80;
+  --flag-filter: none;
 
   --serif: "Source Serif 4", "Iowan Old Style", Georgia, serif;
   --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -34,6 +40,30 @@
   --flag-opacity: 0.045;
 
   color-scheme: dark;
+}
+
+/* Light mode: chosen with the header toggle (site.js), stored per reader */
+:root[data-theme="light"] {
+  --bg: #f7f5f0;
+  --bg-raised: #ffffff;
+  --text: #1b1d21;
+  --text-soft: #43454a;
+  --muted: #6b6c6f;
+  --faint: #8e8f92;
+  --rule: rgba(27, 29, 33, 0.1);
+  --rule-strong: rgba(27, 29, 33, 0.2);
+  --accent: #a33a31;
+  --accent-blue: #3d5a94;
+  --focus: #3d5a94;
+  --header-bg: rgba(247, 245, 240, 0.82);
+  --card-bg: rgba(255, 255, 255, 0.72);
+  --tint: rgba(27, 29, 33, 0.07);
+  --btn-hover: #000;
+  --error: #a33a31;
+  --flag-filter: invert(1);
+  --flag-opacity: 0.03;
+
+  color-scheme: light;
 }
 
 *,
@@ -65,6 +95,7 @@ body::before {
   z-index: -1;
   background: url("flag.svg") center top / cover no-repeat;
   opacity: var(--flag-opacity);
+  filter: var(--flag-filter);
   -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 35%, transparent 95%);
           mask-image: linear-gradient(to bottom, #000 0%, #000 35%, transparent 95%);
   pointer-events: none;
@@ -92,7 +123,7 @@ img, svg { max-width: 100%; display: block; }
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(10, 12, 15, 0.78);
+  background: var(--header-bg);
   backdrop-filter: saturate(140%) blur(10px);
   -webkit-backdrop-filter: saturate(140%) blur(10px);
   border-bottom: 1px solid var(--rule);
@@ -132,6 +163,21 @@ img, svg { max-width: 100%; display: block; }
 @media (max-width: 30rem) {
   .site-nav__secondary { display: none; }
 }
+
+.theme-toggle {
+  display: inline-flex;
+  padding: 0.3rem;
+  margin: -0.3rem;
+  border: 0;
+  background: none;
+  color: var(--text-soft);
+  cursor: pointer;
+}
+.theme-toggle:hover { color: var(--text); }
+.theme-toggle svg { width: 1rem; height: 1rem; }
+.theme-toggle__sun { display: none; }
+:root[data-theme="light"] .theme-toggle__sun { display: block; }
+:root[data-theme="light"] .theme-toggle__moon { display: none; }
 
 .site-footer {
   border-top: 1px solid var(--rule);
@@ -184,7 +230,7 @@ img, svg { max-width: 100%; display: block; }
 }
 
 .btn--primary { background: var(--text); color: var(--bg); }
-.btn--primary:hover { background: #fff; }
+.btn--primary:hover { background: var(--btn-hover); }
 
 .btn--ghost { border-color: var(--rule-strong); color: var(--text); background: transparent; }
 .btn--ghost:hover { border-color: var(--text-soft); }
@@ -337,7 +383,7 @@ a.toc__link:hover .toc__meta { color: var(--text); }
   height: 0.85em;
   vertical-align: -0.05em;
   max-width: 100%;
-  background: rgba(231, 228, 221, 0.08);
+  background: var(--tint);
   border-radius: 1px;
 }
 
@@ -353,7 +399,7 @@ a.toc__link:hover .toc__meta { color: var(--text); }
 
 .subscribe__card {
   border: 1px solid var(--rule-strong);
-  background: rgba(17, 20, 25, 0.72);
+  background: var(--card-bg);
   padding: clamp(1.25rem, 3vw, 1.75rem);
   display: grid;
   grid-template-columns: 1fr;
@@ -405,7 +451,7 @@ a.toc__link:hover .toc__meta { color: var(--text); }
 
 .subscribe-form__status:empty { display: none; }
 .subscribe-form__status[data-state="ok"] { color: var(--text-soft); }
-.subscribe-form__status[data-state="error"] { color: #d98a80; }
+.subscribe-form__status[data-state="error"] { color: var(--error); }
 
 @media (max-width: 30rem) {
   .subscribe-form__row { flex-direction: column; }
@@ -533,7 +579,7 @@ a.toc__link:hover .toc__meta { color: var(--text); }
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 0.85em;
   padding: 0.1em 0.35em;
-  background: rgba(231, 228, 221, 0.07);
+  background: var(--tint);
   border-radius: 2px;
 }
 
